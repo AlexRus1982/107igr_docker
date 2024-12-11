@@ -41,7 +41,8 @@
 auto_commit() {
     git add .
     git commit -a -m "$(date +"%D %T")"
-    git push ssh://git@github.com:AlexRus1982/107igr_docker.git
+    git push 
+    # ssh://git@github.com:AlexRus1982/107igr_docker.git
 }
 
 deploy() {
