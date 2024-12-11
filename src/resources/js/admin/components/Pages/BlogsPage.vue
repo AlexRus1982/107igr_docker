@@ -1,0 +1,325 @@
+<template>
+    <div class="blogs-page">
+
+        <!-- preloader -->
+        <div class="blogs-loader">
+            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
+                <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"/>
+                <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z"/>
+            </svg>
+            <div>Загрузка ...</div>
+        </div>
+
+        <div class="blogs-list">
+            <div class="item" :blog-id="blog.id" v-for="blog in blogsList">
+                <div class="main-body">
+                    <img :src="blog.image" :alt="blog.title">
+                    <div class="title">{{ blog.title }}</div>
+                    <div v-if="blog.tags.length > 0" class="pin" title="Тэг(и)" @click="clickPin(blog.id)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-pin-angle-fill" viewBox="0 0 16 16">
+                            <path d="M9.828.722a.5.5 0 0 1 .354.146l4.95 4.95a.5.5 0 0 1 0 .707c-.48.48-1.072.588-1.503.588-.177 0-.335-.018-.46-.039l-3.134 3.134a5.927 5.927 0 0 1 .16 1.013c.046.702-.032 1.687-.72 2.375a.5.5 0 0 1-.707 0l-2.829-2.828-3.182 3.182c-.195.195-1.219.902-1.414.707-.195-.195.512-1.22.707-1.414l3.182-3.182-2.828-2.829a.5.5 0 0 1 0-.707c.688-.688 1.673-.767 2.375-.72a5.922 5.922 0 0 1 1.013.16l3.134-3.133a2.772 2.772 0 0 1-.04-.461c0-.43.108-1.022.589-1.503a.5.5 0 0 1 .353-.146z"/>
+                        </svg>
+                    </div>
+                    <div class="info-panel">
+                        <div class="info-item visited" title="Посещений">{{ blog.visited }}</div>
+                        <div class="info-item comments" title="Комментариев">{{ blog.comments_count }}</div>
+                        <div class="info-item activity" title="Активность">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" :checked="blog.activity == 1 ? true : false">
+                            </div>
+                        </div>
+                        <div class="info-item edit" title="Редактирование">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                                <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+                            </svg>
+                        </div>
+                        <div class="info-item delete" title="Удалить">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                                <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="expand-body collapsed">
+                    <div class="header pt-2 mb-2" v-if="blog.tags.length > 0">Связанные теги</div>
+                    <div class="links" v-for="tag in blog.tags">{{ tag.tag_name }}</div>
+                    <div class="list-devider mt-2" v-if="blog.tags.length > 0"></div>
+                </div>
+            </div>
+
+            <div class="blogs-add-item" title="Добавить страницу">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+</template>
+
+<style lang="scss" scoped>
+    $max-item-width : 600px;
+    
+    @mixin no-select {
+        -ms-user-select: none;
+        -moz-user-select: none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        user-select: none;
+    }
+
+    .blogs-page {
+        width: 100%;
+        min-height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 50px 0px;
+
+        &.loaded {
+            .blogs-list{
+                display: flex;
+            }
+            
+            .blogs-loader {
+                display: none;
+            }
+        }
+    
+        .blogs-loader {
+            margin-top: auto;
+            margin-bottom: auto;
+            svg {
+                animation-name: blogs-loader-rotation;
+                animation-duration: 2s;
+                animation-iteration-count: infinite;
+                animation-timing-function: linear;
+            }
+        }
+    
+        @keyframes blogs-loader-rotation {
+            0% {
+                transform:rotate(0deg);
+            }
+            100% {
+                transform:rotate(360deg);
+            }
+        }
+
+        .blogs-list {
+            display: none;
+            width: 100%;
+            flex-direction: column;
+            max-width: $max-item-width;
+            gap: 10px;
+
+            .item {
+
+                .main-body {
+                    position:relative;
+                    transition: 0.3s;
+                    padding: 10px;
+                    padding-bottom: 35px;
+                    width: 100%;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.15));
+                    background-color: #FFF4;
+                    @include no-select();
+    
+                    img {
+                        width: 150px;
+                        height: 150px;
+                        object-fit: contain;
+                        margin-right: 10px;
+                    }
+    
+                    .pin {
+                        position: absolute;
+                        transition: 0.3s;
+                        top: -5px;
+                        right: -5px;
+                        color: #FFF;
+                        filter: drop-shadow(0px 0px 2px #E84);
+    
+                        &:hover {
+                            cursor: pointer;
+                            transform: scale(1.5);
+                        }
+                    }
+    
+                    .info-panel {
+                        position: absolute;
+                        bottom: 5px;
+                        right: 0px;
+                        display: flex;
+                        flex-direction: row;
+                        font-size: 12px;
+                        align-items: center;
+                        
+                        .info-item {
+                            padding: 0px 15px;
+                            border-right: 1px solid #FFF4;
+                            transition: 0.3s;
+    
+                            &.activity {
+                                padding: 0px 0px;
+                                border: none !important;
+                                .form-switch {
+                                    padding-left: 2.3rem;
+                                }
+                                .form-check {
+                                    margin-bottom: 0px;
+    
+                                    &:hover {
+                                        cursor: pointer;
+                                    }
+    
+                                    .form-check-input {
+                                        margin-top: 0.5rem;
+    
+                                        &:hover {
+                                            cursor: pointer;
+                                        }
+                                    }
+                                }
+                            }
+    
+                            &:last-child {
+                                border-right: 1px solid #FFF0;
+                            }
+    
+                            &.activity,
+                            &.edit,
+                            &.delete {
+                                border-left: 1px solid #FFF4;
+                                border-right: 1px solid #FFF0;
+    
+                                &:hover {
+                                    cursor: pointer;
+                                }
+                            }
+    
+                            &.edit {
+                                &:hover {
+                                    color: #0F0;
+                                }
+                            }
+    
+                            &.delete {
+                                &:hover {
+                                    color: #F00;
+                                }
+                            }
+                        }
+                    }
+    
+                    &:hover {
+                        // cursor: pointer;
+                        box-shadow: 0px 0px 16px #E84;
+    
+                        color: #E84;
+                        filter: brightness(130%);
+    
+                        .info-panel {
+                            color: #FFF;
+                            filter: brightness(80%);;
+                        }
+                    }
+                }
+
+                .expand-body {
+                    transition: 0.3s;
+                    overflow: hidden;
+                    border-top:none;
+
+                    &.collapsed {
+                        height: 0px;
+                    }
+
+                    .header {
+                        padding: 5px 0px;
+                        padding-left: 10px;
+                        font-weight: 600;
+                        color: #E84;
+                        filter: brightness(130%);
+                        width: 100%;
+                        border-bottom: 1px solid #FFF4;
+                    }
+
+                    .links {
+                        padding-left: 10px;
+                    }
+
+                    .list-devider {
+                        width: 100%;
+                        height: 1px;
+                        background: #FFF4;
+                    }
+                }
+            }
+
+            .blogs-add-item {
+                margin-top: 10px;
+                margin-left: auto;
+                transition: 0.3s;
+
+                &:hover {
+                    cursor: pointer;
+                    transform: rotateZ(180deg);
+                }
+
+            }
+        }
+    }
+</style>
+
+<script lang="ts">
+    import $ from 'jquery'
+    import {ref} from 'vue'
+
+    export default {
+        name: "BlogsPage",
+
+        setup() {
+            const blogsList = ref(<any>[]);
+
+            fetch(`../api/blogs`)
+            .then(response => response.json())
+            .then(
+                ({
+                    'server-answer' : server_answer, 
+                    'list' : list
+                }) => {
+                    console.debug(list);
+                    blogsList.value = list;
+
+                    $('.blogs-page').addClass('loaded');
+                }
+            )
+
+            function clickPin(blogId) {
+                console.debug(blogId);
+                const html_element = $(`.blogs-list .item[blog-id="${blogId}"] .expand-body`);
+                const html_element_collapsed = html_element.hasClass('collapsed');
+                console.debug(html_element);
+                
+                $('.expand-body').slideUp(300);
+                $('.expand-body').addClass('collapsed');
+
+                if (html_element_collapsed) {
+                    html_element.removeClass('collapsed');
+                    html_element.slideDown(300);
+                }
+            }
+
+            return {
+                blogsList,
+
+                clickPin,
+            }
+        },
+    }
+</script>

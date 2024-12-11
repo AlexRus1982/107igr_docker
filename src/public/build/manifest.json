@@ -1,0 +1,275 @@
+{
+  "TextEditor.css": {
+    "file": "assets/TextEditor-d6746e56.css",
+    "src": "TextEditor.css"
+  },
+  "VideoShots.css": {
+    "file": "assets/VideoShots-458c1c89.css",
+    "src": "VideoShots.css"
+  },
+  "_TextEditor-55bdfd85.js": {
+    "css": [
+      "assets/TextEditor-d6746e56.css"
+    ],
+    "file": "assets/TextEditor-55bdfd85.js",
+    "imports": [
+      "resources/js/admin/admin.js"
+    ]
+  },
+  "_VideoShots-52802ca3.js": {
+    "css": [
+      "assets/VideoShots-458c1c89.css"
+    ],
+    "file": "assets/VideoShots-52802ca3.js",
+    "imports": [
+      "_actions_system-9adfde1f.js",
+      "resources/js/admin/admin.js"
+    ]
+  },
+  "_actions_system-9adfde1f.js": {
+    "file": "assets/actions_system-9adfde1f.js"
+  },
+  "node_modules/@mdi/font/fonts/materialdesignicons-webfont.eot": {
+    "file": "assets/materialdesignicons-webfont-0b183104.eot",
+    "src": "node_modules/@mdi/font/fonts/materialdesignicons-webfont.eot"
+  },
+  "node_modules/@mdi/font/fonts/materialdesignicons-webfont.ttf": {
+    "file": "assets/materialdesignicons-webfont-61e8aba5.ttf",
+    "src": "node_modules/@mdi/font/fonts/materialdesignicons-webfont.ttf"
+  },
+  "node_modules/@mdi/font/fonts/materialdesignicons-webfont.woff": {
+    "file": "assets/materialdesignicons-webfont-a5928a0d.woff",
+    "src": "node_modules/@mdi/font/fonts/materialdesignicons-webfont.woff"
+  },
+  "node_modules/@mdi/font/fonts/materialdesignicons-webfont.woff2": {
+    "file": "assets/materialdesignicons-webfont-662fefa8.woff2",
+    "src": "node_modules/@mdi/font/fonts/materialdesignicons-webfont.woff2"
+  },
+  "resources/js/admin/admin.css": {
+    "file": "assets/admin-160b94a5.css",
+    "src": "resources/js/admin/admin.css"
+  },
+  "resources/js/admin/admin.js": {
+    "assets": [
+      "assets/materialdesignicons-webfont-0b183104.eot",
+      "assets/materialdesignicons-webfont-662fefa8.woff2",
+      "assets/materialdesignicons-webfont-a5928a0d.woff",
+      "assets/materialdesignicons-webfont-61e8aba5.ttf"
+    ],
+    "css": [
+      "assets/admin-160b94a5.css"
+    ],
+    "dynamicImports": [
+      "resources/js/admin/components/Pages/AppsPage3.vue",
+      "resources/js/admin/components/Pages/AppsEditPage2.vue",
+      "resources/js/admin/components/Pages/AppsEditPage2.vue",
+      "resources/js/admin/components/Pages/CategoryPage.vue",
+      "resources/js/admin/components/Pages/CategoryEditPage.vue",
+      "resources/js/admin/components/Pages/PagesPage.vue",
+      "resources/js/admin/components/Pages/PageEditPage.vue",
+      "resources/js/admin/components/Pages/BlogsPage.vue",
+      "resources/js/admin/components/Pages/TagsPage.vue",
+      "resources/js/admin/components/Pages/CommentsPage.vue",
+      "resources/js/admin/components/Pages/GigaChatPage.vue",
+      "resources/js/admin/components/Pages/Page404.vue"
+    ],
+    "file": "assets/admin-c899fa24.js",
+    "imports": [
+      "_actions_system-9adfde1f.js"
+    ],
+    "isEntry": true,
+    "src": "resources/js/admin/admin.js"
+  },
+  "resources/js/admin/components/Pages/AppsEditPage2.css": {
+    "file": "assets/AppsEditPage2-96122efc.css",
+    "src": "resources/js/admin/components/Pages/AppsEditPage2.css"
+  },
+  "resources/js/admin/components/Pages/AppsEditPage2.vue": {
+    "css": [
+      "assets/AppsEditPage2-96122efc.css"
+    ],
+    "file": "assets/AppsEditPage2-eb65ff5b.js",
+    "imports": [
+      "_actions_system-9adfde1f.js",
+      "_TextEditor-55bdfd85.js",
+      "resources/js/admin/admin.js",
+      "_VideoShots-52802ca3.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/admin/components/Pages/AppsEditPage2.vue"
+  },
+  "resources/js/admin/components/Pages/AppsPage3.css": {
+    "file": "assets/AppsPage3-01998edd.css",
+    "src": "resources/js/admin/components/Pages/AppsPage3.css"
+  },
+  "resources/js/admin/components/Pages/AppsPage3.vue": {
+    "css": [
+      "assets/AppsPage3-01998edd.css"
+    ],
+    "file": "assets/AppsPage3-e6cce4e1.js",
+    "imports": [
+      "_actions_system-9adfde1f.js",
+      "resources/js/admin/admin.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/admin/components/Pages/AppsPage3.vue"
+  },
+  "resources/js/admin/components/Pages/BlogsPage.css": {
+    "file": "assets/BlogsPage-14a63426.css",
+    "src": "resources/js/admin/components/Pages/BlogsPage.css"
+  },
+  "resources/js/admin/components/Pages/BlogsPage.vue": {
+    "css": [
+      "assets/BlogsPage-14a63426.css"
+    ],
+    "file": "assets/BlogsPage-cd2041bb.js",
+    "imports": [
+      "_actions_system-9adfde1f.js",
+      "resources/js/admin/admin.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/admin/components/Pages/BlogsPage.vue"
+  },
+  "resources/js/admin/components/Pages/CategoryEditPage.css": {
+    "file": "assets/CategoryEditPage-bd1986aa.css",
+    "src": "resources/js/admin/components/Pages/CategoryEditPage.css"
+  },
+  "resources/js/admin/components/Pages/CategoryEditPage.vue": {
+    "css": [
+      "assets/CategoryEditPage-bd1986aa.css"
+    ],
+    "file": "assets/CategoryEditPage-bddd6818.js",
+    "imports": [
+      "_actions_system-9adfde1f.js",
+      "_TextEditor-55bdfd85.js",
+      "resources/js/admin/admin.js",
+      "_VideoShots-52802ca3.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/admin/components/Pages/CategoryEditPage.vue"
+  },
+  "resources/js/admin/components/Pages/CategoryPage.css": {
+    "file": "assets/CategoryPage-6dc9d2ca.css",
+    "src": "resources/js/admin/components/Pages/CategoryPage.css"
+  },
+  "resources/js/admin/components/Pages/CategoryPage.vue": {
+    "css": [
+      "assets/CategoryPage-6dc9d2ca.css"
+    ],
+    "file": "assets/CategoryPage-1977434c.js",
+    "imports": [
+      "_actions_system-9adfde1f.js",
+      "resources/js/admin/admin.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/admin/components/Pages/CategoryPage.vue"
+  },
+  "resources/js/admin/components/Pages/CommentsPage.css": {
+    "file": "assets/CommentsPage-2879681d.css",
+    "src": "resources/js/admin/components/Pages/CommentsPage.css"
+  },
+  "resources/js/admin/components/Pages/CommentsPage.vue": {
+    "css": [
+      "assets/CommentsPage-2879681d.css"
+    ],
+    "file": "assets/CommentsPage-f98d63fe.js",
+    "imports": [
+      "_actions_system-9adfde1f.js",
+      "resources/js/admin/admin.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/admin/components/Pages/CommentsPage.vue"
+  },
+  "resources/js/admin/components/Pages/GigaChatPage.css": {
+    "file": "assets/GigaChatPage-de115d48.css",
+    "src": "resources/js/admin/components/Pages/GigaChatPage.css"
+  },
+  "resources/js/admin/components/Pages/GigaChatPage.vue": {
+    "css": [
+      "assets/GigaChatPage-de115d48.css"
+    ],
+    "file": "assets/GigaChatPage-96fce608.js",
+    "imports": [
+      "_actions_system-9adfde1f.js",
+      "resources/js/admin/admin.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/admin/components/Pages/GigaChatPage.vue"
+  },
+  "resources/js/admin/components/Pages/Page404.vue": {
+    "file": "assets/Page404-8cdf25f1.js",
+    "imports": [
+      "resources/js/admin/admin.js",
+      "_actions_system-9adfde1f.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/admin/components/Pages/Page404.vue"
+  },
+  "resources/js/admin/components/Pages/PageEditPage.css": {
+    "file": "assets/PageEditPage-6c6eb6fc.css",
+    "src": "resources/js/admin/components/Pages/PageEditPage.css"
+  },
+  "resources/js/admin/components/Pages/PageEditPage.vue": {
+    "css": [
+      "assets/PageEditPage-6c6eb6fc.css"
+    ],
+    "file": "assets/PageEditPage-de490972.js",
+    "imports": [
+      "_actions_system-9adfde1f.js",
+      "_TextEditor-55bdfd85.js",
+      "resources/js/admin/admin.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/admin/components/Pages/PageEditPage.vue"
+  },
+  "resources/js/admin/components/Pages/PagesPage.css": {
+    "file": "assets/PagesPage-7adf11e1.css",
+    "src": "resources/js/admin/components/Pages/PagesPage.css"
+  },
+  "resources/js/admin/components/Pages/PagesPage.vue": {
+    "css": [
+      "assets/PagesPage-7adf11e1.css"
+    ],
+    "file": "assets/PagesPage-ffddeb89.js",
+    "imports": [
+      "_actions_system-9adfde1f.js",
+      "resources/js/admin/admin.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/admin/components/Pages/PagesPage.vue"
+  },
+  "resources/js/admin/components/Pages/TagsPage.css": {
+    "file": "assets/TagsPage-c9218b62.css",
+    "src": "resources/js/admin/components/Pages/TagsPage.css"
+  },
+  "resources/js/admin/components/Pages/TagsPage.vue": {
+    "css": [
+      "assets/TagsPage-c9218b62.css"
+    ],
+    "file": "assets/TagsPage-9922b7ee.js",
+    "imports": [
+      "_actions_system-9adfde1f.js",
+      "resources/js/admin/admin.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/admin/components/Pages/TagsPage.vue"
+  },
+  "resources/js/main/main.js": {
+    "file": "assets/main-0953d724.js",
+    "imports": [
+      "_actions_system-9adfde1f.js"
+    ],
+    "isEntry": true,
+    "src": "resources/js/main/main.js"
+  },
+  "resources/sass/admin/admin.scss": {
+    "file": "assets/admin-22578119.css",
+    "isEntry": true,
+    "src": "resources/sass/admin/admin.scss"
+  },
+  "resources/sass/main/main.scss": {
+    "file": "assets/main-c44ded6c.css",
+    "isEntry": true,
+    "src": "resources/sass/main/main.scss"
+  }
+}

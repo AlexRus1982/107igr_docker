@@ -1,0 +1,1 @@
+import{_ as t}from"./admin-c899fa24.js";import"./actions_system-9adfde1f.js";const o={name:"Page404",setup(e,r){console.debug(e,r)},props:{userName:String}};function s(e,r,n,a,p,c){return" 404 "}const f=t(o,[["render",s]]);export{f as default};

@@ -1,0 +1,285 @@
+#!/bin/bash
+
+--------------------------------------------------------------------------------------------------
+#region aliases
+#--------------------------------------------------------------------------------------------------
+
+#openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout test.dev.key -out test.dev.crt
+
+#docker-compose run --rm certbot certonly --webroot --webroot-path /var/www/certbot/ --dry-run -d test.dev -d www.test.dev
+
+#--------------------------------------------------------------------------------------------------
+#endregion aliases
+#--------------------------------------------------------------------------------------------------
+
+#--------------------------------------------------------------------------------------------------
+#region functions
+#--------------------------------------------------------------------------------------------------
+# In ksh and bash, you can access several elements of an array by using the 
+# ${array[@]:first:length} syntax, which expands to up to length (or all if length is omitted) 
+# elements of the array array (in the list of elements of the array sorted numerically on the indexes),
+# starting with the first one with index greater or equal to first.
+
+#ssh smit215b@smit215b.beget.tech
+#cd new.107igr.ru
+#git reset --hard
+#git pull ssh://git@github.com:AlexRus1982/107igr.dev.ru.git
+#git pull
+
+# alias php-composer="php8.2 composer.phar"
+# alias artisan="php8.2 artisan"
+
+# php-composer install --no-dev --optimize-autoloader
+# php-composer install
+# artisan migrate --force
+# artisan cache:clear
+# artisan config:cache
+# artisan event:cache
+# artisan route:cache
+# artisan view:cache
+
+auto_commit() {
+    git add .
+    git commit -a -m "$(date +"%D %T")"
+    # git push ssh://git@212.192.202.82:8822/AlexRus/metall-trade.dev.ru.git
+    
+    #http://glpat-rzhJL1nq1zq8W5rK83sn@212.192.202.82:8083/AlexRus/metall-trade.dev.ru.git
+    
+    #ssh://git@212.192.202.82:8822/AlexRus/metall-trade.dev.ru.git
+    
+    #http://glpat-aBh3yUtWhRYz6weX_19y@212.192.202.82:8083/AlexRus/metall-trade.dev.ru.git
+    
+    #https://glpat-tbGvyTx8o6sMpPUhsF2A@github.com/AlexRus1982/infotechsoft.dev.ru.git
+}
+
+deploy() {
+    npm_build
+    auto_commit
+    # ssh rusakohz@rusakohz.beget.tech 'cd ./metall-trade.rusakohz.beget.tech/src; sh ./deploy.sh'
+}
+
+
+# Run docker installation
+docker-install () {
+    sudo apt remove docker docker-engine docker.io containerd runc
+    sudo apt install ca-certificates curl gnupg lsb-release
+    mkdir -p /etc/apt/keyrings
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+    echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+    sudo apt update
+    sudo apt install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+    sudo docker volume create portainer_data
+    sudo docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:2.21.1
+}
+
+#ln -s src/public public_html
+laravel_install () {
+    sudo docker compose up -d --build backend
+    sudo docker compose exec backend /bin/bash -lc 'composer create-project laravel/laravel .'
+}
+
+composer_install () {
+    sudo docker compose exec backend /bin/bash -lc "composer require ${@:1}"
+}
+
+vue_install () {
+    sudo docker compose exec node /bin/bash -lc "npm install vue@latest vue-loader@latest @vitejs/plugin-vue"
+    sudo docker compose exec node /bin/bash -lc "npm install @mdi/font material-design-icons-iconfont sass vue-router vuetify"
+}
+
+npm_install () {
+    sudo docker compose exec node /bin/bash -lc "npm install ${@:1}"
+}
+
+npm_build () {
+    sudo docker compose exec node /bin/bash -lc 'npm run build'
+}
+
+docker_up(){
+    sudo docker compose up -d --build "${@:1}"
+}
+
+docker_down(){
+    sudo docker compose down "${@:1}"
+}
+
+laravel_db_refresh(){
+    sudo docker compose exec backend /bin/bash -lc "php artisan migrate:refresh --seed"
+}
+
+laravel_api_install(){
+    sudo docker compose exec backend /bin/bash -lc "php artisan install:api"
+}
+
+laravel_make_model(){
+    sudo docker compose exec backend /bin/bash -lc "php artisan make:model ${@:1} -mfs"
+}
+
+laravel_start_seeder(){
+    sudo docker compose exec backend /bin/bash -lc "php artisan db:seed --class=${@:1}"
+}
+
+laravel_make_migration(){
+    sudo docker compose exec backend /bin/bash -lc "php artisan make:migration ${@:1}"
+}
+
+laravel_make_controller(){
+    sudo docker compose exec backend /bin/bash -lc "php artisan make:controller ${@:1}"
+}
+
+laravel_routes(){
+    sudo docker compose exec backend /bin/bash -lc "php artisan route:list"
+}
+
+laravel_middleware() {
+    sudo docker compose exec backend /bin/bash -lc "php artisan make:middleware ${@:1}"
+}
+
+# Generate a new certificate
+cert_generate () {
+    rm -Rf .docker/nginx/certs/demo.test.*
+    docker compose run --rm nginx sh -c "cd /etc/nginx/certs && touch openssl.cnf && cat /etc/ssl1.1/openssl.cnf > openssl.cnf && echo \"\" >> openssl.cnf && echo \"[ SAN ]\" >> openssl.cnf && echo \"subjectAltName=DNS.1:demo.test,DNS.2:*.demo.test\" >> openssl.cnf && openssl req -x509 -sha256 -nodes -newkey rsa:4096 -keyout demo.test.key -out demo.test.crt -days 3650 -subj \"/CN=*.demo.test\" -config openssl.cnf -extensions SAN && rm openssl.cnf"
+}
+
+# Install the certificate
+cert_install () {
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+        sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain .docker/nginx/certs/demo.test.crt
+    elif [[ "$OSTYPE" == "linux-gnu" ]]; then
+        sudo ln -s "$(pwd)/.docker/nginx/certs/demo.test.crt" /usr/local/share/ca-certificates/demo.test.crt
+        sudo update-ca-certificates
+    else
+        echo "Could not install the certificate on the host machine, please do it manually"
+    fi
+
+    docker compose exec -u root backend update-ca-certificates
+}
+
+# Run a Composer command
+composer () {
+    docker compose run --rm backend composer "${@:1}"
+}
+
+# Remove the entire Docker environment
+destroy () {
+    read -p "This will delete containers, volumes and images. Are you sure? [y/N]: " -r
+    if [[ ! $REPLY =~ ^[Yy]$ ]]; then exit; fi
+    docker compose down -v --rmi all --remove-orphans
+}
+
+# Create .env from .env.example
+env () {
+    if [ ! -f .env ]; then
+        cp .env.example .env
+    fi
+}
+
+# Display and tail the logs of all containers or the specified one's
+logs () {
+    docker compose logs -f "${@:1}"
+}
+
+#--------------------------------------------------------------------------------------------------
+#endregion functions
+#--------------------------------------------------------------------------------------------------
+
+#--------------------------------------------------------------------------------------------------
+#region menu
+#--------------------------------------------------------------------------------------------------
+case "$1" in
+    test)
+        test "${@:2}";;
+    docker-install)
+        docker-install;;
+    laravel_install)
+        laravel_install;;
+    laravel_db_refresh)
+        laravel_db_refresh;;
+    laravel_middleware)
+        laravel_middleware "${@:2}";;
+    laravel_make_model)
+        laravel_make_model "${@:2}";;
+    laravel_make_migration)
+        laravel_make_migration "${@:2}";;
+    laravel_start_seeder)
+        laravel_start_seeder "${@:2}";;
+    laravel_make_controller)
+        laravel_make_controller "${@:2}";;
+    laravel_routes)
+        laravel_routes;;
+    vue_install)
+        vue_install;;
+    npm_install)
+        npm_install "${@:2}";;
+    composer_install)
+        composer_install "${@:2}";;
+    npm_build)
+        npm_build;;
+    deploy) 
+        deploy;;
+    docker_up)
+        docker_up "${@:2}";;
+    docker_down)
+        docker_down "${@:2}";;
+    auto_commit)
+        auto_commit;;
+    cert)
+        case "$2" in
+            generate)
+                cert_generate;;
+            install)
+                cert_install;;
+            *)
+                cat << EOF
+
+Certificate management commands.
+
+Usage:
+    demo cert <command>
+
+Available commands:
+    generate .................................. Generate a new certificate
+    install ................................... Install the certificate
+
+EOF
+                ;;
+        esac;;
+    composer)
+        composer "${@:2}";;
+    destroy)
+        destroy;;
+    init)
+        init;;
+    logs)
+        logs "${@:2}";;
+    restart)
+        restart;;
+    start)
+        start;;
+    stop)
+        stop;;
+    update)
+        update;;
+    *)
+        cat << EOF
+
+Command line interface for the Docker-based web development environment demo.
+
+Usage:
+    demo <command> [options] [arguments]
+
+Available commands:
+    artisan ................................... Run an Artisan command
+    build [image] ............................. Build all of the images or the specified one
+    cert ...................................... Certificate management commands
+        generate .............................. Generate a new certificate
+        install ............................... Install the certificate
+    composer .................................. Run a Composer command
+    destroy ................................... Remove the entire Docker environment
+    logs [container] .......................... Display and tail the logs of all containers or the specified one's
+EOF
+        exit;;
+esac
+#--------------------------------------------------------------------------------------------------
+#endregion menu
+#--------------------------------------------------------------------------------------------------
