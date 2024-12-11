@@ -4,7 +4,8 @@ set -e
 
 echo "Deploying..."
 git reset --hard
-git pull https:://git@github.com:AlexRus1982/107igr_docker.git
+git pull
+# git pull https:://git@github.com:AlexRus1982/107igr_docker.git
 
 #ssh://git@212.192.202.82:8822/AlexRus/metall-trade.dev.ru.git
 
