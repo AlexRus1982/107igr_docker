@@ -43,7 +43,7 @@
                         <div> 
                             <div class="list-item-image">
                                 <img 
-                                    src="{{ $item->icon }}" 
+                                    src="https://files.107igr.ru{{ $item->icon }}" 
                                     alt="{{ $item->name }} - аватарка" 
                                     loading="lazy"
                                     draggable="false"

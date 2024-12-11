@@ -16,7 +16,7 @@
             @dragover="onDragOver($event, index)"
             @dragleave="onDragLeave($event, index)"
         >
-            <img :src="imgSrc" :original="imgSrc" @error="errorScreenShot">
+            <img :src="'https://files.107igr.ru' + imgSrc" :original="imgSrc" @error="errorScreenShot">
 
             <div class="edit-button" title="Редактировать скриншот" @click="editScreenShot(index)">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">

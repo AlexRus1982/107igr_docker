@@ -27,7 +27,7 @@
                 @dragover="onDragOver($event, item)"
                 draggable="true"
             >
-                <img :src="item.category_image" draggable="false">
+                <img :src="'https://files.107igr.ru' + item.category_image" draggable="false">
                 
                 <div>{{ item.category.category }}</div>
                 

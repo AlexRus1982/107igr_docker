@@ -14,7 +14,7 @@
                     @endphp
                     <div class="vertical-apps-list-item">
                         <a class="image-wrapper" href="/{{ $item['main_url'] }}/{{ $item['url'] }}">
-                            <img src="{{ $item['icon'] }}" alt="{{ $item['main_url'] }} - {{ $item['name'] }}">
+                            <img src="https://files.107igr.ru{{ $item['icon'] }}" alt="{{ $item['main_url'] }} - {{ $item['name'] }}">
                         </a>
                         <div class="right-side">
                             <a class="app-name" href="/{{ $item['main_url'] }}/{{ $item['url'] }}">{{ $item['name'] }}</a>

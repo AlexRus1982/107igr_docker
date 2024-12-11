@@ -29,7 +29,7 @@
                         draggable="false"
                     >
                         <img 
-                            src="{{ $item }}" 
+                            src="https://files.107igr.ru{{ $item }}" 
                             alt="Скриншот №{{ $loop->index + 1 }}" 
                             loading="lazy"
                             draggable="false"

@@ -35,7 +35,7 @@
             <div class="left-column">
                 <v-card elevation="0" rounded="lg"
                     style="position: sticky; top: 0px; display: flex; flex-direction: column; gap: 10px; width: 220px; padding: 0px 10px; background: none;">
-                    <IconImage :imagePath="appData.icon" @imageChanged="onIconChanged"
+                    <IconImage :imagePath="'https://files.107igr.ru' + appData.icon" @imageChanged="onIconChanged"
                         style="height: 200px; object-fit: contain;"></IconImage>
 
                     <!-- Content Menu -->

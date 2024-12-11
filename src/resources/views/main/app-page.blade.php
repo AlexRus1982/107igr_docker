@@ -54,7 +54,7 @@
         {{-- Картинка с надписью --}}
         <div class="app-card-title section-container-wrapper">
             <div class="app-card-title-image">
-                <img src="{{ $page->app->icon }}" alt="Toca Life: World">
+                <img src="https://files.107igr.ru{{ $page->app->icon }}" alt="{{ $page->app->name }}">
             </div>
             <div class="app-card-title-label">
                 <h1>{{ $page->app->name }}</h1>

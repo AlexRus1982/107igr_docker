@@ -1,7 +1,7 @@
 <template>
     <div v-if="columnItem.labelContent == 'icon'" :class="columnItem.labelClass" @click="editApp($event, appObject)"
         style="cursor: pointer;">
-        <img :src="appObject.icon">
+        <img :src="'https://files.107igr.ru' + appObject.icon">
     </div>
 
     <div v-else-if="columnItem.labelContent == 'name'" :class="columnItem.labelClass"

@@ -16,7 +16,7 @@
         <div class="categories-list">
             @foreach ($categoriesList as $category)
                 <a href="{{ $categoriesTitleUrl }}/{{ $category['category_url'] }}" class="category">
-                    <img class="category-image" src="{{ $category['category_image'] }}" alt="Иконка - {{ $category['category_name'] }}">
+                    <img class="category-image" src="https://files.107igr.ru{{ $category['category_image'] }}" alt="Иконка - {{ $category['category_name'] }}">
                     <div class="category-name">{{ $category['category_name'] }}</div>
                 </a>
             @endforeach

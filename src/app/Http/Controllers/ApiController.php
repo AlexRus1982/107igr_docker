@@ -433,8 +433,8 @@ class ApiController extends Controller
         $tempFile = file_put_contents($tmpfname, $fileContents);
 
         $client->putObject([
-            'Bucket' => 'dc2b71e969f8-upright-natalia',
-            'Key'    => $storagePath,
+            'Bucket'     => 'dc2b71e969f8-upright-natalia',
+            'Key'        => $storagePath,
             'SourceFile' => $tmpfname,
         ]);
 
