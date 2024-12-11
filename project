@@ -41,15 +41,7 @@
 auto_commit() {
     git add .
     git commit -a -m "$(date +"%D %T")"
-    # git push ssh://git@212.192.202.82:8822/AlexRus/metall-trade.dev.ru.git
-    
-    #http://glpat-rzhJL1nq1zq8W5rK83sn@212.192.202.82:8083/AlexRus/metall-trade.dev.ru.git
-    
-    #ssh://git@212.192.202.82:8822/AlexRus/metall-trade.dev.ru.git
-    
-    #http://glpat-aBh3yUtWhRYz6weX_19y@212.192.202.82:8083/AlexRus/metall-trade.dev.ru.git
-    
-    #https://glpat-tbGvyTx8o6sMpPUhsF2A@github.com/AlexRus1982/infotechsoft.dev.ru.git
+    git push ssh://git@github.com:AlexRus1982/107igr_docker.git
 }
 
 deploy() {
