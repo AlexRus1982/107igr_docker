@@ -1,17 +1,5 @@
 #!/bin/bash
 
---------------------------------------------------------------------------------------------------
-#region aliases
-#--------------------------------------------------------------------------------------------------
-
-#openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout test.dev.key -out test.dev.crt
-
-#docker-compose run --rm certbot certonly --webroot --webroot-path /var/www/certbot/ --dry-run -d test.dev -d www.test.dev
-
-#--------------------------------------------------------------------------------------------------
-#endregion aliases
-#--------------------------------------------------------------------------------------------------
-
 #--------------------------------------------------------------------------------------------------
 #region functions
 #--------------------------------------------------------------------------------------------------
@@ -48,7 +36,7 @@ auto_commit() {
 deploy() {
     npm_build
     auto_commit
-    # ssh rusakohz@rusakohz.beget.tech 'cd ./metall-trade.rusakohz.beget.tech/src; sh ./deploy.sh'
+    # ssh smit215b@smit215b.beget.tech 'cd ./new.107igr.ru/src; sh ./deploy.sh'
 }
 
 

@@ -7,20 +7,20 @@
     "file": "assets/VideoShots-458c1c89.css",
     "src": "VideoShots.css"
   },
-  "_TextEditor-55bdfd85.js": {
+  "_TextEditor-5ba25d3e.js": {
     "css": [
       "assets/TextEditor-d6746e56.css"
     ],
-    "file": "assets/TextEditor-55bdfd85.js",
+    "file": "assets/TextEditor-5ba25d3e.js",
     "imports": [
       "resources/js/admin/admin.js"
     ]
   },
-  "_VideoShots-52802ca3.js": {
+  "_VideoShots-badd5b31.js": {
     "css": [
       "assets/VideoShots-458c1c89.css"
     ],
-    "file": "assets/VideoShots-52802ca3.js",
+    "file": "assets/VideoShots-badd5b31.js",
     "imports": [
       "_actions_system-9adfde1f.js",
       "resources/js/admin/admin.js"
@@ -73,7 +73,7 @@
       "resources/js/admin/components/Pages/GigaChatPage.vue",
       "resources/js/admin/components/Pages/Page404.vue"
     ],
-    "file": "assets/admin-c899fa24.js",
+    "file": "assets/admin-3f9f4e0f.js",
     "imports": [
       "_actions_system-9adfde1f.js"
     ],
@@ -88,12 +88,12 @@
     "css": [
       "assets/AppsEditPage2-96122efc.css"
     ],
-    "file": "assets/AppsEditPage2-eb65ff5b.js",
+    "file": "assets/AppsEditPage2-c0a68abe.js",
     "imports": [
       "_actions_system-9adfde1f.js",
-      "_TextEditor-55bdfd85.js",
+      "_TextEditor-5ba25d3e.js",
       "resources/js/admin/admin.js",
-      "_VideoShots-52802ca3.js"
+      "_VideoShots-badd5b31.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/admin/components/Pages/AppsEditPage2.vue"
@@ -106,7 +106,7 @@
     "css": [
       "assets/AppsPage3-01998edd.css"
     ],
-    "file": "assets/AppsPage3-e6cce4e1.js",
+    "file": "assets/AppsPage3-8977ad5f.js",
     "imports": [
       "_actions_system-9adfde1f.js",
       "resources/js/admin/admin.js"
@@ -122,7 +122,7 @@
     "css": [
       "assets/BlogsPage-14a63426.css"
     ],
-    "file": "assets/BlogsPage-cd2041bb.js",
+    "file": "assets/BlogsPage-965f394a.js",
     "imports": [
       "_actions_system-9adfde1f.js",
       "resources/js/admin/admin.js"
@@ -138,12 +138,12 @@
     "css": [
       "assets/CategoryEditPage-bd1986aa.css"
     ],
-    "file": "assets/CategoryEditPage-bddd6818.js",
+    "file": "assets/CategoryEditPage-7c4551f0.js",
     "imports": [
       "_actions_system-9adfde1f.js",
-      "_TextEditor-55bdfd85.js",
+      "_TextEditor-5ba25d3e.js",
       "resources/js/admin/admin.js",
-      "_VideoShots-52802ca3.js"
+      "_VideoShots-badd5b31.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/admin/components/Pages/CategoryEditPage.vue"
@@ -156,7 +156,7 @@
     "css": [
       "assets/CategoryPage-6dc9d2ca.css"
     ],
-    "file": "assets/CategoryPage-1977434c.js",
+    "file": "assets/CategoryPage-f7051a4b.js",
     "imports": [
       "_actions_system-9adfde1f.js",
       "resources/js/admin/admin.js"
@@ -172,7 +172,7 @@
     "css": [
       "assets/CommentsPage-2879681d.css"
     ],
-    "file": "assets/CommentsPage-f98d63fe.js",
+    "file": "assets/CommentsPage-36bd9eb3.js",
     "imports": [
       "_actions_system-9adfde1f.js",
       "resources/js/admin/admin.js"
@@ -188,7 +188,7 @@
     "css": [
       "assets/GigaChatPage-de115d48.css"
     ],
-    "file": "assets/GigaChatPage-96fce608.js",
+    "file": "assets/GigaChatPage-01614730.js",
     "imports": [
       "_actions_system-9adfde1f.js",
       "resources/js/admin/admin.js"
@@ -197,7 +197,7 @@
     "src": "resources/js/admin/components/Pages/GigaChatPage.vue"
   },
   "resources/js/admin/components/Pages/Page404.vue": {
-    "file": "assets/Page404-8cdf25f1.js",
+    "file": "assets/Page404-1115665e.js",
     "imports": [
       "resources/js/admin/admin.js",
       "_actions_system-9adfde1f.js"
@@ -213,10 +213,10 @@
     "css": [
       "assets/PageEditPage-6c6eb6fc.css"
     ],
-    "file": "assets/PageEditPage-de490972.js",
+    "file": "assets/PageEditPage-64691640.js",
     "imports": [
       "_actions_system-9adfde1f.js",
-      "_TextEditor-55bdfd85.js",
+      "_TextEditor-5ba25d3e.js",
       "resources/js/admin/admin.js"
     ],
     "isDynamicEntry": true,
@@ -230,7 +230,7 @@
     "css": [
       "assets/PagesPage-7adf11e1.css"
     ],
-    "file": "assets/PagesPage-ffddeb89.js",
+    "file": "assets/PagesPage-f4e2a94f.js",
     "imports": [
       "_actions_system-9adfde1f.js",
       "resources/js/admin/admin.js"
@@ -246,7 +246,7 @@
     "css": [
       "assets/TagsPage-c9218b62.css"
     ],
-    "file": "assets/TagsPage-9922b7ee.js",
+    "file": "assets/TagsPage-b084ae49.js",
     "imports": [
       "_actions_system-9adfde1f.js",
       "resources/js/admin/admin.js"
